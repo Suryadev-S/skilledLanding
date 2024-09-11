@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --primary: #2B164E;
+    --secondary: #57565a;
+}
+
+/* normalise */
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+ul {
+    list-style-type: none;
+}
+
+button {
+    border: none;
+    outline: none;
+    background-color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* base */
+
+body {
+    /* background-color: #eeeeee; */
+    background-image: linear-gradient(to bottom, #eeeeee 50%, rgba(111, 111, 175, 0.478));
+}
+
+nav {
+    padding-block: 24px;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+footer nav{
+    padding-inline: 12px;
+}
+
+
+/* utilities */
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 340px 1fr;
+}
+
+.wrapper>* {
+    grid-column: 2;
+}
+
+.wrapper>main{
+    margin-block: 24px;
+}
+
+.wrapper>footer {
+    grid-column: 1 / span 3;
+    background-color: var(--primary);
+}
+
+.gradient {
+    background-image: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+}
+
+/* components */
+nav .logo {
+    font-weight: 600;
+    color: var(--primary);
+    font-size: x-large;
+}
+
+footer .logo {
+    color: white;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--primary);
+    color: #eeeeee;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    text-transform: capitalize;
+    font-size: 18px;
+}
+
+.hero {
+    display: grid;
+    gap: 80px;
+}
+
+.hero>div:first-child{
+    display: grid;
+    gap: 16px;
+    place-items: start;
+}
+
+.hero>div:last-child {
+    place-self: center;
+    position: relative;
+}
+
+.hero h1 {
+    color: var(--primary);
+    font-size: 36px;
+}
+
+.hero p {
+    color: var(--secondary);
+}
+
+.hero .img-container {
+    overflow: hidden;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+}
+
+.hero img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero .floating-info {
+    position: absolute;
+    background-color: #eeeeee;
+    border-radius: 10px;
+    padding: 16px 12px;
+    width: 100px;
+}
+
+.hero .floating-info h5 {
+    font-weight: 400;
+    color: var(--secondary);
+}
+
+.hero .floating-info.float-1 {
+    bottom: -50px;
+    left: -20px;
+    box-shadow: -20px 20px 60px rgba(111, 111, 175, 0.289);
+}
+
+.hero .floating-info.float-2 {
+    top: -20px;
+    right: -10px;
+    box-shadow: 20px -20px 60px rgba(111, 111, 175, 0.289);
+}
+
+.feature-list {
+    display: grid;
+    gap: 32px;
+}
+
+.feature-list li:first-child {
+    color: white;
+    font-weight: 700;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.card {
+    display: grid;
+    gap: 12px;
+    place-items: start;
+    padding: 30px 20px;
+    position: relative;
+    /* border: 1px solid red; */
+    border-radius: 10px;
+    background-color: #eeeeee;
+}
+
+.card>div:first-child {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: grid;
+    place-content: center;
+    background-color: #f5576c;
+    color: white;
+    top: 0;
+    left: 20px;
+    transform: translateY(-50%);
+}
+
+.card .btn, footer .btn {
+    padding: unset;
+    background-color: unset;
+}
+
+.card .btn{
+    color: #f5576c;
+}
+
+.card p {
+    color: var(--secondary)
+}
+
+
+@media screen and (min-width: 500px) {
+    body {
+        background-image: linear-gradient(to bottom, #eeeeee 50%, rgba(111, 111, 175, 0.289));
+    }
+    .wrapper {
+        grid-template-columns: 1fr 900px 1fr;
+    }
+
+    .hero {
+        grid-template-columns: repeat(2, 1fr);
+        gap: unset;
+    }
+
+    .hero .img-container {
+        width: 300px;
+        height: 500px;
+        border-radius: 500px;
+    }
+
+    .hero>div:first-child {
+        place-self: center;
+    }
+
+    .hero>div:last-child {
+        place-self: end;
+    }
+
+    .hero .floating-info.float-1 {
+        bottom: 20px;
+        left: -60px;
+    }
+
+    .hero .floating-info.float-2 {
+        top: 40px;
+        right: -50px;
+    }
+
+    .feature-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    footer nav{
+        width: 60%;
+        margin: auto;
+    }
+}
